@@ -1,0 +1,240 @@
+.header {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    top: 0;
+    color: white;
+    padding: 35px;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 300;
+    box-sizing: border-box;
+    align-items: center;
+
+    .logo {
+        display: flex;
+        cursor: pointer;
+
+        p {
+            margin: 0px;
+            transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .name {
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-left: 5px;
+            transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+
+            p {
+                position: relative;
+                transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+
+                &:nth-of-type(2) {
+                    padding-left: 0.3em;
+                }
+
+                &:nth-of-type(3) {
+                    position: absolute;
+                    left: 120px;
+                    padding-left: 0.3em;
+                }
+            }
+        }
+
+        &:hover {
+            .copy {
+                transform: rotate(360deg);
+            }
+
+            .name {
+                padding-right: 30px;
+
+                .CodeBy {
+                    transform: translateX(-100%);
+                }
+
+                .edwin {
+                    transform: translateX(-65px);
+                }
+
+                .santiago {
+                    transform: translateX(-65px);
+                }
+            }
+        }
+
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+
+        .el {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            padding: 15px;
+            cursor: pointer;
+
+            &:hover {
+                .indicator {
+                    transform: scale(1);
+                }
+            }
+
+            .indicator {
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                top: 45px;
+                left: 50%;
+                background-color: white;
+                border-radius: 50%;
+                transform: scale(0) translateX(-50%);
+                transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+
+        @media (max-width: 900px) {
+            display: none;
+        }
+    }
+
+    .menu_movil {
+        display: none;
+        align-items: center;
+
+        @media (max-width: 900px) {
+            display: flex;
+        }
+    }
+}
+
+.headerMenuContainer {
+    transform: scale(0);
+    position: fixed;
+    right: 0px;
+    z-index: 14;
+
+    .menutoggle {
+        position: fixed;
+        top: 2em;
+        right: 2em;
+        width: 120px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 8em;
+        transition: width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transform-origin: right;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .opened {
+        width: 60px;
+    }
+
+    .menucopy {
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        transform: translateY(-50%);
+        color: #111117;
+        transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        z-index: 1;
+    }
+
+    .menucopy p {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menutoggle:hover .menucopy {
+        left: 20px;
+    }
+
+    .opened .menucopy {
+        opacity: 0;
+    }
+
+    .menutoggleicon {
+        position: absolute;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        clip-path: circle(10% at 50% 50%);
+        background-color: #111117;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        z-index: 10;
+        overflow: hidden;
+    }
+
+    .menutoggle:hover .menutoggleicon {
+        clip-path: circle(35% at 50% 50%);
+    }
+
+    .opened .menutoggleicon {
+        background-color: #111117;
+        clip-path: circle(50% at 50% 50%);
+        transform: scale(1.125);
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        opacity: 0;
+    }
+
+    .menutoggle:hover .hamburger,
+    .opened .hamburger {
+        top: 70%;
+        opacity: 1;
+    }
+
+    .menubar {
+        position: absolute;
+        width: 15px;
+        height: 1.5px;
+        background-color: #fff;
+        transition-property: transform;
+        transition: all 250ms ease-out;
+    }
+
+    .menubar[data-position="top"] {
+        transform: translateY(-3px);
+    }
+
+    .menubar[data-position="bottom"] {
+        transform: translateY(3px);
+    }
+
+    .opened .menubar[data-position="top"] {
+        transform: translateY(0) rotate(45deg) scaleX(1.05);
+    }
+
+    .opened .menubar[data-position="bottom"] {
+        transform: translateY(0) rotate(-45deg) scaleX(1.05);
+    }
+}
