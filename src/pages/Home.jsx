@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import '../pages/Home.scss';
-import * as THREE from 'three.js';
+import * as THREE from 'three';
 import { vertexShader, fluidShader, displayShader } from './shaders.js'
 import logo from '../assets/logo/logo.webp'
 import Description from './Description.jsx'
