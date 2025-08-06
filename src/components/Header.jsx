@@ -47,7 +47,7 @@ const Header = () => {
                         <p className={style.santiago}>Santiago</p>
                     </div>
                 </div>
-                <div className={style.el} onClick={toggleMenu}>
+                <div ref={button} className={style.el} onClick={toggleMenu}>
                     <div className={style.menu_movil}>
                         <p>Menu</p>
                     </div>

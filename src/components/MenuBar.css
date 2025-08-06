@@ -192,6 +192,8 @@
     line-height: 125%;
 }
 
+
+
 .link a::after {
   content: "";
   display: block;
@@ -255,4 +257,80 @@
     display: inline-block;
     transform: scale(0.1) translate(500px) rotateY(80deg);
     transform-origin: bottom;
+}
+
+/* Dispositivos móviles (teléfonos) */
+@media (max-width: 767px) {
+
+  .logo a, .menu-logo a {
+    font-size: 30px;
+  }
+
+  .menu-toggle {
+    width: 100px;
+    height: 50px;
+    top: 1em;
+    right: 1em;
+  }
+
+  .menu-copy p {
+    font-size: 10px;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 24px;
+  }
+
+  .menu-bar {
+    width: 12px;
+  }
+
+  .link a {
+    font-size: 24px;
+  }
+
+  .header h1 {
+    font-size: 120px;
+    height: auto;
+  }
+
+  .socials {
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+  }
+
+  .col {
+    padding: 5em 1em;
+    align-items: flex-start;
+  }
+
+  .video-wrapper {
+    padding: 1em;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .logo a, .menu-logo a {
+    font-size: 40px;
+  }
+
+  .menu-toggle {
+    width: 100px;
+    height: 50px;
+  }
+
+  .menu-copy p {
+    font-size: 11px;
+  }
+
+  .link a {
+    font-size: 32px;
+  }
+
+  .header h1 {
+    font-size: 200px;
+  }
 }

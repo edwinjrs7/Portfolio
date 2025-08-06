@@ -105,6 +105,8 @@
             cursor: pointer;
         }
 
+       
+
 
         @media (max-width: 900px) {
             display: none;
@@ -114,9 +116,28 @@
     .menu_movil {
         display: none;
         align-items: center;
+        cursor: pointer;
 
         @media (max-width: 900px) {
             display: flex;
+        }
+
+        .indicator {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            top: 45px;
+            left: 50%;
+            background-color: white;
+            border-radius: 50%;
+            transform: scale(0) translateX(-50%);
+            transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        &:hover {
+            .indicator {
+                transform: scale(1);
+            }
         }
     }
 }
