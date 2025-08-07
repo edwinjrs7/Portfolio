@@ -259,65 +259,19 @@
     transform-origin: bottom;
 }
 
-/* Dispositivos móviles (teléfonos) */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
+  .logo, .menu-logo {
+    top: 1.5em;
+    left: 1.5em;
+  }
 
   .logo a, .menu-logo a {
-    font-size: 30px;
+    font-size: 48px;
   }
 
   .menu-toggle {
-    width: 100px;
-    height: 50px;
-    top: 1em;
-    right: 1em;
-  }
-
-  .menu-copy p {
-    font-size: 10px;
-  }
-
-  .hamburger {
-    width: 24px;
-    height: 24px;
-  }
-
-  .menu-bar {
-    width: 12px;
-  }
-
-  .link a {
-    font-size: 24px;
-  }
-
-  .header h1 {
-    font-size: 120px;
-    height: auto;
-  }
-
-  .socials {
-    flex-direction: column;
-    width: 100%;
-    gap: 1em;
-  }
-
-  .col {
-    padding: 5em 1em;
-    align-items: flex-start;
-  }
-
-  .video-wrapper {
-    padding: 1em;
-  }
-}
-
-/* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .logo a, .menu-logo a {
-    font-size: 40px;
-  }
-
-  .menu-toggle {
+    top: 1.5em;
+    right: 1.5em;
     width: 100px;
     height: 50px;
   }
@@ -326,11 +280,97 @@
     font-size: 11px;
   }
 
+  .hamburger {
+    top: 65%;
+  }
+
+  .link a {
+    font-size: 40px;
+  }
+
+  .header h1 {
+    font-size: 250px;
+    height: auto;
+  }
+
+  .col {
+    padding: 8em 1.5em 2em 1.5em;
+  }
+
+  .socials {
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo a, .menu-logo a {
+    font-size: 36px;
+  }
+
+  .menu-toggle {
+    width: 80px;
+    height: 40px;
+  }
+
+  .menu-copy p {
+    font-size: 10px;
+  }
+
+  .hamburger {
+    top: 60%;
+  }
+
   .link a {
     font-size: 32px;
   }
 
   .header h1 {
-    font-size: 200px;
+    font-size: 180px;
+  }
+
+  .col {
+    padding: 6em 1em 2em 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo a, .menu-logo a {
+    font-size: 28px;
+  }
+
+  .menu-toggle {
+    width: 70px;
+    height: 35px;
+  }
+
+  .menu-copy p {
+    font-size: 9px;
+  }
+
+  .hamburger {
+    top: 55%;
+  }
+
+  .link a {
+    font-size: 24px;
+  }
+
+  .header h1 {
+    font-size: 120px;
+  }
+
+  .col {
+    padding: 4em 1em 1em 1em;
+    align-items: flex-start;
+  }
+
+  .socials {
+    gap: 1em;
+  }
+
+  .socials .sub-col p {
+    font-size: 10px;
   }
 }
