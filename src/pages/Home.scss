@@ -25,3 +25,27 @@ img{
         height: 100%;
     }
 }
+
+@media (max-width: 1024px) {
+  .hero {
+    .hero-logo {
+      width: 35%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    .hero-logo {
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    .hero-logo {
+      width: 60%;
+    }
+  }
+}

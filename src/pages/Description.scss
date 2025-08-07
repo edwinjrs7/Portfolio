@@ -67,21 +67,72 @@
         border: 1px solid grey;
     }
 
-    @media (max-width: 768px) {
-        .description .body {
-            flex-direction: row;
-        }
+    
+}
 
-        p:nth-of-type(2) {
-            width: 80%;
-        }
-
-        .button {
-            left: calc(100% - 200px);
-            transform: none;
-            bottom: auto;
-            top: 80%;
-        }
+@media (max-width: 1024px) {
+  .description {
+    padding-left: 100px;
+    padding-right: 100px;
+    .body {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      p:nth-of-type(1) {
+        font-size: 28px;
+      }
+      p:nth-of-type(2) {
+        width: 100%;
+        font-size: 16px;
+      }
+      .button {
+        position: static;
+        width: 140px;
+        height: 140px;
+        margin-top: 40px;
+      }
     }
+  }
+}
 
+@media (max-width: 768px) {
+  .description {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 100px;
+    .body {
+      gap: 30px;
+      p:nth-of-type(1) {
+        font-size: 24px;
+      }
+      p:nth-of-type(2) {
+        font-size: 15px;
+      }
+      .button {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .description {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 80px;
+    .body {
+      gap: 20px;
+      p:nth-of-type(1) {
+        font-size: 20px;
+      }
+      p:nth-of-type(2) {
+        font-size: 14px;
+      }
+      .button {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
 }
