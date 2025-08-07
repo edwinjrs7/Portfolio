@@ -383,7 +383,7 @@
   }
 
   .header h1 span {
-    transform: scale(0.1) translate(50px) rotateY(80deg);
+    transform: scale(0.1) translate(50px) rotateY(90deg);
   }
 
   .col {
