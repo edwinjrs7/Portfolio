@@ -13,7 +13,8 @@ export default function Works() {
         {
             id: 1,
             image: proyecto_1,
-            title: "Green Energy Solutions"
+            title: "Green Energy Solutions",
+            description: "Plataforma de gestión energética capaz de gestionar el consumo de energia de cualquier establecimiento, mostrando cifras diarias, mensuales y anuales todo con sus respectivas graficas."
         },
         {
             id: 2,
@@ -111,6 +112,7 @@ export default function Works() {
                     return <div className="proyect" key={i}>
                         <div className="proyect-info">
                             <h1>{proyecto.title}</h1>
+                            <p>{proyecto.description}</p>
                         </div>
                         <div className="proyect-img">
                             <div className="img">

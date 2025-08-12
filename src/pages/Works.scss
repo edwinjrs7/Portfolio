@@ -32,7 +32,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 2em;
+        padding: 1em;
     }
 
     .proyect-img{
@@ -52,6 +52,14 @@
         color: #fff;
         font-size: 36px;
         font-weight: 500;
+    }
+
+    p{
+      color: #fff;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 150%;
+
     }
 
     img {
