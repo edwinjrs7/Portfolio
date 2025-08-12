@@ -19,12 +19,14 @@ export default function Works() {
         {
             id: 2,
             image: proyecto_2,
-            title: "MediHelp"
+            title: "MediHelp",
+            description: "Plataforma web para la gestion de historial medico de los pacientes , tambien es una herramienta que sirve para la gestión de citas medicas , facilitandoles a los profesionales de la salud manejar su tiempo de forma más efectiva con sus pacientes.",
         },
         {
             id: 3,
             image: proyecto_3,
-            title: "EduFlex"
+            title: "EduFlex",
+            description: "Plataforma de aprendizaje autodidacta impulsado por inteligencia artificial, diseñada para ayudar a los estudiantes para el aprendizaje autonomo y autodidacta."
 
         }
 
