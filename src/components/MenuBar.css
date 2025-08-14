@@ -21,7 +21,7 @@
 }
 
 .menu-logo a {
-  color: #111117;
+  color: #fff;
 }
 
 .menu-toggle {
@@ -143,10 +143,7 @@
   height: 100vh;
   overflow: hidden;
   display: flex;
-  background-image: url(../assets/background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  backdrop-filter: blur(10px);
+  background-color: #0133ff;
   pointer-events: none;
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -154,16 +151,7 @@
   z-index: 10;
 }
 
-.menu::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  /* O usa rgba(17, 17, 23, 0.2) para tono oscuro */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  z-index: 0;
-}
+
 
 .col {
   flex: 1;
@@ -191,7 +179,7 @@
 
 .link a {
   text-decoration: none;
-  color: #111117;
+  color: #FFF;
   font-size: 48px;
   font-weight: 300;
   letter-spacing: 1.5px;
@@ -205,7 +193,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #111117;
+  background: #fff;
   transition: width 0.3s;
 }
 
@@ -240,7 +228,7 @@
 
 .socials .sub-col p {
   position: relative;
-  color: #111117;
+  color: #fff;
   transform: translateY(30px);
   opacity: 0;
   text-transform: uppercase;
@@ -250,7 +238,7 @@
 }
 
 .header h1 {
-  color: #111117;
+  color: #fff;
   text-transform: uppercase;
   font-family: 'schabo';
   font-size: 400px;

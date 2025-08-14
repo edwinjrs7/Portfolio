@@ -51,7 +51,9 @@
             justify-content: center;
             cursor: pointer;
 
-            p {
+            .font {
+                color: white;
+                text-decoration: none;
                 margin: 0px;
                 font-size: 16px;
                 font-weight: 300;
@@ -90,6 +92,10 @@
         width: 140px;
         height: 140px;
         margin-top: 40px;
+        .font{
+          font-size: 14px;
+        }
+
       }
     }
   }
@@ -111,6 +117,9 @@
       .button {
         width: 120px;
         height: 120px;
+        .font{
+          font-size: 12px;
+        }
       }
     }
   }
@@ -132,6 +141,9 @@
       .button {
         width: 100px;
         height: 100px;
+        .font {
+          font-size: 10px;
+        }
       }
     }
   }
