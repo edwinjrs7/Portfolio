@@ -1,6 +1,7 @@
 import { useInView , motion } from "framer-motion";
 import { useRef } from "react";
 import { slideUp, opacity } from './animation';
+import Rounded from '../common/rounded/Rounded';
 import './Description.scss'
 
 export default function Description() {
@@ -20,9 +21,10 @@ export default function Description() {
                 </p>
                 <motion.p variants={opacity} animate={isInView ? "open": "closed"}>Creando soluciones unicas e inovadoras, destaco entre los demas por mi poder creativo.</motion.p>
                 <div data-scroll data-scroll-speed={0.1}>
-                    <div className="button">
+                    <Rounded className="button">
                         <p>Sobre Mi</p>
-                    </div>
+                    </Rounded>
+                    
                 </div>
             </div>
         </div>
