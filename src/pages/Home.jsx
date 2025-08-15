@@ -7,6 +7,7 @@ import Description from './Description.jsx'
 import Works from './Works.jsx';
 
 
+
 export default function Home() {
     const config = {
         brushSize: 25.0,
@@ -172,6 +173,7 @@ export default function Home() {
             </section>
             <Description />
             <Works />
+            
         </>
     )
 }

@@ -26,6 +26,7 @@ export default function Description() {
                         <Link to="/about" className="font">Ven Conoce Más !</Link>
                     </Rounded>                    
                 </div>
+                
             </div>
         </div>
     )

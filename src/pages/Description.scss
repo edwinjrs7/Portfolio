@@ -89,11 +89,8 @@
       }
       .button {
         position: absolute;
-        top: 100%;
+        top: 70%;
         left: calc(100% - 80px);
-        transform: translate(-50%, -50%);
-        width: 180px;
-        height: 180px;
         margin-top: 40px;
         .font{
           font-size: 14px;

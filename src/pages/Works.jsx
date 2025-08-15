@@ -1,6 +1,7 @@
 import proyecto_1 from "../assets/GreenEnergy.webp";
 import proyecto_2 from "../assets/medihelp.webp";
 import proyecto_3 from "../assets/eduflex.webp"
+import BotonPago from "../components/BotonPago";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -115,6 +116,7 @@ export default function Works() {
                         <div className="proyect-info">
                             <h1>{proyecto.title}</h1>
                             <p>{proyecto.description}</p>
+                            <BotonPago/>
                         </div>
                         <div className="proyect-img">
                             <div className="img">
