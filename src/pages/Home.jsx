@@ -171,7 +171,9 @@ export default function Home() {
                     <img src={logo} alt="Logo de Edwin Santiago" />
                 </div>
                 <div className="hero-img-copy">
-                    <p>Deslice para ver contenido</p>
+                    <p>Deslice para ver contenido
+                                ▼
+                    </p>
                 </div>
             </section>
             <Description />
