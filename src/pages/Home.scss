@@ -35,7 +35,7 @@ img {
   }
 
   .hero-img-copy p {
-    font-size: 4.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -45,7 +45,7 @@ img {
       width: 35%;
     }
     .hero-img-copy{
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 }
@@ -55,6 +55,9 @@ img {
     .hero-logo {
       width: 45%;
     }
+    .hero-img-copy{
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -62,6 +65,9 @@ img {
   .hero {
     .hero-logo {
       width: 60%;
+    }
+    .hero-img-copy{
+      font-size: 1.5rem;
     }
   }
 }
