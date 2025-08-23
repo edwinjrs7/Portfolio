@@ -170,6 +170,9 @@ export default function Home() {
                 <div className="hero-logo">
                     <img src={logo} alt="Logo de Edwin Santiago" />
                 </div>
+                <div className="hero-img-copy">
+                    <p>Deslice hacia abajo</p>
+                </div>
             </section>
             <Description />
             <Works />
