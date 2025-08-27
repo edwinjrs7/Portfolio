@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './style.scss';
 
-const saludo = ["Hola","Soy", "Edwin", "Desarrollador", "FrontEnd", "BackEnd", "Freelancer 🚀", "Bienvenido!"]
+const saludo = ["Hola","Soy", "Edwin", "Desarrollador", "FrontEnd", "BackEnd", "Freelancer 🚀", "Bienvenido 😄"]
 export default function Preloader() {
 
     const [index, setIndex] = useState(0);
