@@ -1,11 +1,12 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import '../pages/Home.scss';
 import * as THREE from 'three';
 import { vertexShader, fluidShader, displayShader } from './shaders.js'
 import logo from '../assets/logo/logo.webp'
 import Description from './Description.jsx'
 import Works from './Works.jsx';
-
+import Preloader from "../common/preloader/preloader.jsx";
+import { AnimatePresence } from "framer-motion";
 
 
 export default function Home() {
@@ -163,8 +164,27 @@ export default function Home() {
 
         animate()
     }, [])
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        (
+            async () => {
+                const LocomotiveScroll = (await import('locomotive-scroll')).default
+                const locomotiveScroll = new LocomotiveScroll();
+                setTimeout(() => {
+                    setIsLoading(false);
+                    document.body.style.cursor = 'default'
+                    window.scrollTo(0, 0);
+                }, 2000)
+            }
+        )()
+    }, [])
     return (
         <>
+            <AnimatePresence mode="wait">
+                {isLoading && <Preloader />}
+            </AnimatePresence>
             <section className="hero">
                 <div className="gradient-canvas"></div>
                 <div className="hero-logo">
@@ -176,7 +196,7 @@ export default function Home() {
             </section>
             <Description />
             <Works />
-            
+
         </>
     )
 }

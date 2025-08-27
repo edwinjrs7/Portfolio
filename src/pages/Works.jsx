@@ -116,7 +116,7 @@ export default function Works() {
                         <div className="proyect-info">
                             <h1>{proyecto.title}</h1>
                             <p>{proyecto.description}</p>
-                            <BotonPago/>
+                            {/* <BotonPago/> */}
                         </div>
                         <div className="proyect-img">
                             <div className="img">
