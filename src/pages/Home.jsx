@@ -2,14 +2,35 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import '../pages/Home.scss';
 import * as THREE from 'three';
 import { vertexShader, fluidShader, displayShader } from './shaders.js'
-import logo from '../assets/logo/logo.webp'
+import logo from '../assets/logo/ES.png'
 import Description from './Description.jsx'
 import Works from './Works.jsx';
 import Preloader from "../common/preloader/preloader.jsx";
 import { AnimatePresence } from "framer-motion";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from '@studio-freight/lenis';
+import { useGSAP } from '@gsap/react';
+import { logoData } from './logo.js';
 
-
+gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        (
+            async () => {
+                const LocomotiveScroll = (await import('locomotive-scroll')).default
+                const locomotiveScroll = new LocomotiveScroll();
+                setTimeout(() => {
+                    setIsLoading(false);
+                    document.body.style.cursor = 'default'
+                    window.scrollTo(0, 0);
+                }, 2000)
+            }
+        )()
+    }, [])
+
     const config = {
         brushSize: 25.0,
         brushStrength: 0.5,
@@ -165,20 +186,119 @@ export default function Home() {
         animate()
     }, [])
 
-    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(() => {
-        (
-            async () => {
-                const LocomotiveScroll = (await import('locomotive-scroll')).default
-                const locomotiveScroll = new LocomotiveScroll();
-                setTimeout(() => {
-                    setIsLoading(false);
-                    document.body.style.cursor = 'default'
-                    window.scrollTo(0, 0);
-                }, 2000)
+        const lenis = new Lenis();
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        const heroImgContainer = document.querySelector(".hero-img-container");
+        const heroLogo = document.querySelector(".hero-logo");
+        const heroImgCopy = document.querySelector(".hero-img-copy");
+        const fadeOverlay = document.querySelector(".fade-overlay");
+        const svgOverlay = document.querySelector(".overlay");
+        const overlayCopy = document.querySelector(".overlay-copy h1");
+
+        const initialOverlayScale = 350;
+        const logoContainer = document.querySelector(".logo-container");
+        const logoMask = document.getElementById("logoMask");
+        console.log(logoMask)
+
+        logoMask.setAttribute("d", logoData);
+
+        const logoDimensions = logoContainer.getBoundingClientRect();
+        const logoBoundingBox = logoMask.getBBox();
+
+        const horizontalScaleRatio = logoDimensions.width / logoBoundingBox.width;
+
+        const verticalScaleRatio = logoDimensions.height / logoBoundingBox.height;
+
+        const logoScaleFactor = Math.min(horizontalScaleRatio, verticalScaleRatio);
+
+        const logoHorizontalPosition = logoDimensions.left + (logoDimensions.width - logoBoundingBox.width * logoScaleFactor) / 2 - logoBoundingBox.x * logoScaleFactor;
+
+        const logoVerticalPosition = logoDimensions.top + (logoDimensions.height - logoBoundingBox.height * logoScaleFactor) / 2 - logoBoundingBox.y * logoScaleFactor;
+
+        console.log({
+            horizontalScaleRatio,
+            verticalScaleRatio,
+            logoScaleFactor,
+            logoHorizontalPosition,
+            logoVerticalPosition
+        });
+        logoMask.setAttribute("transform", `translate(${logoHorizontalPosition}, ${logoVerticalPosition}) scale(${logoScaleFactor})`);
+
+        ScrollTrigger.create({
+            trigger: ".hero",
+            start: "top top",
+            end: `${window.innerHeight * 5}px`,
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            onUpdate: (self) => {
+                const scrollProgress = self.progress;
+                const fadeOpacity = 1 - scrollProgress * (1 / 0.15);
+
+                if (scrollProgress <= 0.15) {
+                    gsap.set([heroLogo, heroImgCopy], {
+                        opacity: fadeOpacity,
+                    });
+                } else {
+                    gsap.set([heroLogo, heroImgCopy], {
+                        opacity: 0,
+                    });
+                }
+
+                if (scrollProgress <= 0.85) {
+                    const normalizedProgress = scrollProgress * (1 / 0.85);
+                    const heroImgContainerScale = 1.5 - 0.5 * normalizedProgress;
+                    const overlayScale = initialOverlayScale * Math.pow(1 / initialOverlayScale, normalizedProgress);
+
+                    let fadeOverlayOpacity = 0;
+
+                    gsap.set(heroImgContainer, {
+                        scale: heroImgContainerScale,
+                    });
+
+                    gsap.set(svgOverlay, {
+                        scale: overlayScale,
+                    });
+
+                    if (scrollProgress >= 0.25) {
+                        fadeOverlayOpacity = Math.min(1, (scrollProgress - 0.25) * (1 / 0.4));
+                    }
+
+                    gsap.set(fadeOverlay, {
+                        opacity: fadeOverlayOpacity,
+                    });
+                }
+
+                if (scrollProgress >= 0.6 && scrollProgress <= 0.85) {
+                    const overlayCopyRevealProgress = (scrollProgress - 0.6) * (1 / 0.25);
+
+                    const gradientSpread = 100;
+                    const gradientBottomPosition = 240 - overlayCopyRevealProgress * 280;
+                    const gradientTopPosition = gradientBottomPosition - gradientSpread;
+                    const overlayCopyScale = 1.25 - 0.25 * overlayCopyRevealProgress;
+
+                    overlayCopy.style.background = `linear-gradient(to bottom, #111117 0%, #111117 ${gradientTopPosition}%, #0133ff ${gradientBottomPosition}%, #fff 100%)`;
+                    overlayCopy.style.backgroundClip = "text";
+
+                    gsap.set(overlayCopy, {
+                        scale: overlayCopyScale,
+                        opacity: overlayCopyRevealProgress,
+                    });
+                } else if (scrollProgress < 0.6) {
+                    gsap.set(overlayCopy, {
+                        opacity: 0,
+                    })
+                }
             }
-        )()
+        })
     }, [])
     return (
         <>
@@ -186,16 +306,41 @@ export default function Home() {
                 {isLoading && <Preloader />}
             </AnimatePresence>
             <section className="hero">
-                <div className="gradient-canvas"></div>
-                <div className="hero-logo">
-                    <img src={logo} alt="Logo de Edwin Santiago" />
-                </div>
-                <div className="hero-img-copy">
-                    <p>▼ Deslice para ver contenido</p>
+                <div className="hero-img-container">
+                    <div className="gradient-canvas"></div>
+                    <div className="hero-logo">
+                        <img src={logo} alt="Logo de Edwin Santiago" />
+                    </div>
+                    <div className="hero-img-copy">
+                        <p>▼ Deslice para ver contenido</p>
+                    </div>
+
+                    <div className="fade-overlay"></div>
+
+                    <div className="overlay">
+                        <svg width="100%" height="100%">
+                            <defs>
+                                <mask id="logoRevealMask">
+                                    <rect width="100%" height="100%" fill="white" />
+                                    <path id="logoMask" fill="black" d=" "/>
+                                </mask>
+                            </defs>
+                            <rect width="100%" height="100%" fill="#111117" mask="url(#logoRevealMask)" />
+                        </svg>
+                    </div>
+
+                    <div className="logo-container"></div>
+
+                    <div className="overlay-copy">
+                        <h1>Mi Nombre es Edwin Junior Santiago <br>
+                        </br>Esto es Lo que hago como Ingeniero de Sistemas</h1>
+                    </div>
                 </div>
             </section>
-            <Description />
-            <Works />
+            <section className="outro">
+                <Description />
+                <Works />
+            </section>
 
         </>
     )

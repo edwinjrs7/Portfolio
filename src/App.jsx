@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
-import Footer from "./components/Footer.jsx";
+// import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AboutMe from "./pages/AboutMe.jsx";
 import { useEffect, useState } from "react";
@@ -18,7 +18,7 @@ function App () {
                 <Route path="/" element={<Home />}/>
                 <Route path="/about" element = {<AboutMe />}/>
             </Routes>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </>
     )
 }

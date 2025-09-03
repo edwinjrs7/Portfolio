@@ -8,14 +8,25 @@ img {
   position: relative;
   width: 100%;
   height: 100svh;
+  background-color: #111117;
   overflow: hidden;
 
-  .hero-logo {
+  .hero-img-container, .fade-overlay{
     position: absolute;
-    top: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-logo img {
+    position: absolute;
+    top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     width: 25%;
+    height: auto;
+    object-fit: contain;
   }
 
   .gradient-canvas {
@@ -35,7 +46,56 @@ img {
   }
 
   .hero-img-copy p {
-    font-size: 1rem;
+    font-size: 0.65rem;
+  }
+
+  .fade-overlay {
+    background-color: #111117;
+    will-change: opacity;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center 15%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+
+  .logo-container {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 80px;
+    z-index: 2;
+  }
+
+  .overlay-copy {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+  }
+
+  .overlay-copy h1 {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transform-origin: center 0%;
+  }
+
+  .outro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 }
 
@@ -44,7 +104,8 @@ img {
     .hero-logo {
       width: 35%;
     }
-    .hero-img-copy{
+
+    .hero-img-copy {
       font-size: 0.65rem;
     }
   }
@@ -55,7 +116,8 @@ img {
     .hero-logo {
       width: 45%;
     }
-    .hero-img-copy{
+
+    .hero-img-copy {
       font-size: 0.65rem;
     }
   }
@@ -66,7 +128,8 @@ img {
     .hero-logo {
       width: 60%;
     }
-    .hero-img-copy{
+
+    .hero-img-copy {
       font-size: 0.65rem;
     }
   }
